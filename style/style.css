@@ -1,0 +1,53 @@
+#navbrand {
+  background: #ffc107 !important;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.slogan {
+  font-size: 17px;
+}
+
+.navbar-light .navbar-brand {
+  color: white;
+  font-weight: bold;
+}
+
+.title-index{
+  font-size: 20px;
+}
+
+section {
+  padding-left: 20px;
+}
+
+#img_eggs {
+  width: 100%;
+
+}
+
+form {
+  margin: auto;
+}
+
+.input-date[type=date] {
+  width: 250px;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ffc107;
+  border-radius: 4px;
+}
+
+.input-date-submit[type=submit]{
+  width: 30px;
+  box-sizing: border-box;
+  background-color: #ffc107;
+  border: 2px solid #ffc107;
+  border-radius: 4px;
+}
