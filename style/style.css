@@ -83,3 +83,8 @@ form {
 #green-bck {
   background-color: #239B56 !important;
 }
+
+.input-edit {
+  height : 200px;
+  overflow:scroll;
+}
