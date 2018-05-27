@@ -1,6 +1,8 @@
 <?php ob_start(); ?>
 
-
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
 <?php
 if(isset($_SESSION['id']))
 {
@@ -24,6 +26,8 @@ else
 <?php
 }
 ?>
-
+    </div>
+  </div>
+</div>
 <?php $content = ob_get_clean(); ?>
 <?php require __DIR__.'/../layout/header.php'; ?>

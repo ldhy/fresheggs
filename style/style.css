@@ -32,7 +32,7 @@
 }
 
 .red {
-  color: red;
+  color: #7B241C;
 }
 
 .title-index {
@@ -43,9 +43,23 @@
   color: white;
 }
 
+
 .container {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+
+@media (min-width: 1200px){
+.recipe-index {
+  margin-left: 450px !important;
+  }
+}
+
+
+.description-index {
+  color: black !important;
+  font-style: italic
 }
 
 
@@ -87,4 +101,8 @@ form {
 .input-edit {
   height : 200px;
   overflow:scroll;
+}
+
+#purple {
+  background-color: #AF7AC5;
 }

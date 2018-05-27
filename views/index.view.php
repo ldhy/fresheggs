@@ -73,9 +73,6 @@ if($_SESSION){
         </nav>
       </header>
 
-      <!--<img id="img_eggs" src="style/images/eggs.jpg"/>-->
-
-
 <section class="title-index">
 
   <p class="red">
@@ -95,7 +92,7 @@ if($_SESSION){
           Fresh Eggs vous permet de calculer la fraîcheur de vos oeufs</br>
           Et vous évite l'intoxication !</br>
           Vous trouverez également des recettes</br>
-          Et des informations sur les oeuf
+          Et des informations sur les oeufs
         </p>
     </div>
   </section>
@@ -109,7 +106,7 @@ if($_SESSION){
     </div>
 
     <div class="col-md-4 col-lg-4">
-        <a href="#calculs"><img src="style/images/infos.png"/></a>
+        <a href="#"><img src="style/images/infos.png"/></a>
     </div>
 
     <div class="col-md-4 col-lg-4">
@@ -138,23 +135,32 @@ if($_SESSION){
         <span class="orange">Mes oeufs sont frais du <?= $echoFreshDcr ?> au <?= $echoDeadlineDcr ?></span> </br>
         <span class="red">La date maximale de consommation de mes oeufs est le <?= $echoDeadlineDcr ?></span> </p>
 
+    <div class="container recipe-index">
+      <div class="row eggs">
+
     <?php
         foreach ($reqrecipes as $recipe)
           {
     ?>
-          <div class="card" style="width: 18rem;">
+          <div class="card col-lg-3" style="width: 18rem;">
             <div class="card-body">
               <h1 class="title-index"><?= $recipe['title']; ?></h1>
-              <h3><?= $recipe['description']; ?></h3>
-              <a href="./pages/read.php?recipe_id=<?= $recipe['id']; ?>"><button type="button" class="btn btn-warning">Voir la recette</button></a>
+                <h3 class="description-index"><?= $recipe['description']; ?></h3>
+                <a href="./pages/read.php?recipe_id=<?= $recipe['id']; ?>"><button type="button" class="btn btn-warning">Voir la recette</button></a>
             </div>
           </div>
     <?php
           }
+        ?>
+          </div>
+        </div>
+        <?php
         }
 
     ?>
+
 </div>
+
         <h4>La DCR max à choisir pour des oeufs extra frais :</h4>
             <form action="" method="post">
               <label>Je rentre la date limite pour laquelle je veux des oeufs extra frais :</label>
@@ -170,6 +176,8 @@ if($_SESSION){
       <span class="orange">Mes oeufs sont frais du <?= $fresh2 ?> au <?= $extrafreshmax ?></span> </br>
       <span class="red">Mes oeufs ne sont plus consommables après le <?= $extrafreshmax ?></span> </p>
 
+      <div class="container recipe-index">
+        <div class="row eggs">
     <?php
         foreach ($reqrecipes as $recipe)
           {
@@ -177,11 +185,16 @@ if($_SESSION){
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h1 class="title-index"><?= $recipe['title']; ?></h1>
-              <a href="./pages/read.php?recipe_id=<?= $recipe['id']; ?>"><button type="button" class="btn btn-warning">Voir la recette</button></a>
+                <h3 class="description-index"><?= $recipe['description']; ?></h3>
+                <a href="./pages/read.php?recipe_id=<?= $recipe['id']; ?>"><button type="button" class="btn btn-warning">Voir la recette</button></a>
             </div>
           </div>
     <?php
           }
+        ?>
+        </div>
+      </div>
+    <?php
      }
     ?>
   </section>
