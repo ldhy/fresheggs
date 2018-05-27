@@ -13,20 +13,34 @@
     }
 ?>
 
+
 <?php
 
 		foreach ($reqrecipes as $recipe)
+
     {
 ?>
 
-			 <h1><?= $recipe['title']; ?></h1>
-         <h2><?= $recipe['description']; ?></h2>
-          <p>
-            <a href="../pages/read.php?recipe_id=<?= $recipe['id'] ?>"><?= 'Voir la recette'?></a>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h1 class="title-index"><?= $recipe['title']; ?></h1>
+            <h2 class="title-index"><?= $recipe['description']; ?></h2>
+            <a href="../pages/read.php?recipe_id=<?= $recipe['id'] ?>"><button type="button" class="btn btn-warning">Voir la recette</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <?php
 }
 ?>
-        </p>
+
+
 
 
 <?php $content = ob_get_clean(); ?>

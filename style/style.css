@@ -23,14 +23,42 @@
   font-size: 20px;
 }
 
-section {
-  padding-left: 20px;
+.green {
+  color: green;
 }
 
+.orange {
+  color: orange;
+}
+
+.red {
+  color: red;
+}
+
+.title-index {
+  text-align: center;
+  background-color: #239B56;
+  padding-top: 45px;
+  padding-bottom: 45px;
+  color: white;
+}
+
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.eggs {
+  padding-left: 50px;
+}
+
+/*
 #img_eggs {
   width: 100%;
 
 }
+*/
 
 form {
   margin: auto;
@@ -50,4 +78,8 @@ form {
   background-color: #ffc107;
   border: 2px solid #ffc107;
   border-radius: 4px;
+}
+
+#green-bck {
+  background-color: #239B56 !important;
 }

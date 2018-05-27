@@ -28,7 +28,7 @@
                 <input type="email" class="form-control" id="inputPassword2" placeholder="votre email" name="emailconnect" />
                 <input type="password" class="form-control" id="inputPassword2" placeholder="votre mot de passe" name="passwordconnect"  />
               </div>
-              <input type="submit" class="btn btn-primary mb-2" value="ok" name="formconnection"/>
+              <input type="submit" class="btn btn-primary mb-2" id="green-bck" value="ok" name="formconnection"/>
             </form>
 
             <ul class="navbar-nav ml-auto">
@@ -73,16 +73,54 @@ if($_SESSION){
         </nav>
       </header>
 
-      <img id="img_eggs" src="Style/images/eggs.jpg"/>
+      <!--<img id="img_eggs" src="style/images/eggs.jpg"/>-->
 
 
-    <?php
-    if(isset($message))
-      {
-        echo $message;
-      }
-    ?>
+<section class="title-index">
 
+  <p class="red">
+      <?php
+      if(isset($message))
+        {
+          echo $message;
+        }
+      ?>
+  </p>
+
+<div class="container">
+  <section class="row">
+    <div class="col-lg-12 hidden-xs">
+      <h1>Bienvenue sur Fresh Eggs !</h1>
+        <p>Vous ne savez jamais si vos oeufs sont consommables ?</br>
+          Fresh Eggs vous permet de calculer la fraîcheur de vos oeufs</br>
+          Et vous évite l'intoxication !</br>
+          Vous trouverez également des recettes</br>
+          Et des informations sur les oeuf
+        </p>
+    </div>
+  </section>
+</div>
+
+
+<div class="container">
+  <section class="row eggs">
+    <div class="col-md-4 col-lg-4">
+      <a href="#calculs"><img src="style/images/calculs.png"/></a>
+    </div>
+
+    <div class="col-md-4 col-lg-4">
+        <a href="#calculs"><img src="style/images/infos.png"/></a>
+    </div>
+
+    <div class="col-md-4 col-lg-4">
+        <a href="./pages/recipes.php"><img src="style/images/recettes.png"/></a>
+    </div>
+  </section>
+</div>
+
+
+
+  <div id="calculs">
         <h3>Je veux connaître :</h3>
 
         <h4>La date max en extra frais de mon oeuf :</h4>
@@ -96,9 +134,9 @@ if($_SESSION){
 
     <?php
     if(isset($_POST['formdcr'])){ ?>
-        <p>Mes oeufs sont extra frais du <?= $echoClutchDcr ?> au <?= $echoExtrafreshDcr ?> </br>
-        Mes oeufs sont frais du <?= $echoFreshDcr ?> au <?= $echoDeadlineDcr ?> </br>
-        La date maximale de consommation de mes oeufs est le <?= $echoDeadlineDcr ?> </p>
+        <p><span class="green">Mes oeufs sont extra frais du <?= $echoClutchDcr ?> au <?= $echoExtrafreshDcr ?></span> </br>
+        <span class="orange">Mes oeufs sont frais du <?= $echoFreshDcr ?> au <?= $echoDeadlineDcr ?></span> </br>
+        <span class="red">La date maximale de consommation de mes oeufs est le <?= $echoDeadlineDcr ?></span> </p>
 
     <?php
         foreach ($reqrecipes as $recipe)
@@ -116,6 +154,7 @@ if($_SESSION){
         }
 
     ?>
+</div>
         <h4>La DCR max à choisir pour des oeufs extra frais :</h4>
             <form action="" method="post">
               <label>Je rentre la date limite pour laquelle je veux des oeufs extra frais :</label>
@@ -126,10 +165,10 @@ if($_SESSION){
 
     <?php
     if(isset($_POST['formextrafresh'])){ ?>
-      <p>Je choisis une DCR maximale au <?= $extrafreshmax ?> </br>
-      Mes oeufs sont extra frais du <?= $clutch2 ?> au <?= $deadline2 ?> maximum </br>
-      Mes oeufs sont frais du <?= $fresh2 ?> au <?= $extrafreshmax ?> </br>
-      Mes oeufs ne sont plus consommables après le <?= $extrafreshmax ?> </p>
+      <p>Je choisis une DCR maximale au <span class="red"><?= $extrafreshmax ?></span> </br>
+      <span class="green">Mes oeufs sont extra frais du <?= $clutch2 ?> au <?= $deadline2 ?> maximum</span> </br>
+      <span class="orange">Mes oeufs sont frais du <?= $fresh2 ?> au <?= $extrafreshmax ?></span> </br>
+      <span class="red">Mes oeufs ne sont plus consommables après le <?= $extrafreshmax ?></span> </p>
 
     <?php
         foreach ($reqrecipes as $recipe)
@@ -145,6 +184,8 @@ if($_SESSION){
           }
      }
     ?>
+  </section>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
