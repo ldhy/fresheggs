@@ -32,7 +32,7 @@ if(isset($_POST['formconnection']) AND $_GET['recipe_id'])
 {
   require __DIR__.'/models/Users.php';
   $emailconnect = htmlspecialchars($_POST['emailconnect']);
-  $passwordconnect = ($_POST['passwordconnect']);
+  $passwordconnect = sha1($_POST['passwordconnect']);
   $getrecipeid = htmlspecialchars($_GET['recipe_id']);
   if(!empty($emailconnect) AND !empty($passwordconnect))
   {
