@@ -5,7 +5,7 @@ if(isset($_POST['formconnection']) AND empty($_GET['recipe_id']))
 {
   require __DIR__.'/models/Users.php';
   $emailconnect = htmlspecialchars($_POST['emailconnect']);
-  $passwordconnect = sha1($_POST['passwordconnect']);
+  $passwordconnect = ($_POST['passwordconnect']);
   if(!empty($emailconnect) AND !empty($passwordconnect))
   {
 			$user = Users::connectMember($emailconnect, $passwordconnect);
