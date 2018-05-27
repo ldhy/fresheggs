@@ -33,14 +33,16 @@ class Recipes {
   //Affichage recettes
   public function browseRecipes() {
     $pdo = self::initializePdo();
-    $recipes = $pdo->query('SELECT * FROM recipes');
+    //$recipes = $pdo->query('SELECT * FROM recipes');
+    $recipes = $pdo->query('SELECT * FROM recipes WHERE deleted_at IS NULL');
     $result = $recipes->fetchAll();
     return $result;
   }
 
   //Afficher détail des recettes
   public function readRecipe($recipe_id) {
-  	$pdo_statement = self::prepareStatement('SELECT * FROM recipes WHERE id = :id');
+  	//$pdo_statement = self::prepareStatement('SELECT * FROM recipes WHERE id = :id');
+    $pdo_statement = self::prepareStatement('SELECT * FROM recipes WHERE deleted_at IS NULL AND id=:id');
   	$pdo_statement->execute(array(
       'id' => $recipe_id
   	));
@@ -51,7 +53,8 @@ class Recipes {
   //Affichage aléatoire de recette
   public function randRecipes(){
   	$pdo = self::initializePdo();
-  	$recipes = $pdo->query('SELECT * FROM recipes ORDER BY rand() LIMIT 1');
+  	//$recipes = $pdo->query('SELECT * FROM recipes ORDER BY rand() LIMIT 1');
+    $recipes = $pdo->query('SELECT * FROM recipes WHERE deleted_at IS NULL ORDER BY rand() LIMIT 1');
   	$result = $recipes->fetchAll();
   	return $result;
   }
@@ -87,7 +90,8 @@ class Recipes {
 
   //Supprimer une recette
   public function deleteRecipe($recipe_id) {
-  	$pdo_statement = self::prepareStatement('DELETE FROM recipes WHERE id = :id');
+  	//$pdo_statement = self::prepareStatement('DELETE FROM recipes WHERE id = :id');
+    $pdo_statement = self::prepareStatement('UPDATE recipes SET deleted_at = CURRENT_TIMESTAMP() WHERE id=:id');
   	$pdo_statement->execute(array(
   			'id' => $recipe_id
   			));
